@@ -7,7 +7,7 @@ const load = () => {
     .add('Welcome', () => (
       <TeamJourney
         actions={[
-          {label: 'Publish team on your own profile', onClick: Sb.action('onPublishTeam')},
+          {label: 'Publish team on your profile', onClick: Sb.action('onPublishTeam')},
           {label: 'Browse channels', onClick: Sb.action('onBrowseChannels')},
         ]}
         image="icon-illustration-welcome-96"

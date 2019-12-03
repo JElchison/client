@@ -34,6 +34,14 @@ type Action = {
   onClick: () => void
 }
 
+// xxx todo
+// The SYSTEM message for joining that now reads "added you to __ as an owner. Say hi! :wave:"
+// Should instead say only "added you to __ as an owner."
+// And it should lose the "Browse other channels".
+// Retain only "Manage phone and computer notifications"
+// "And it's the same system message that everybody else sees and it can get reacjis" - cecile
+// To be clear, remove "Say hi!"
+
 const TeamJourneyContainer = (props: Props) => {
   let text = ''
   let image: Kb.IconType | null = null
@@ -42,9 +50,14 @@ const TeamJourneyContainer = (props: Props) => {
 
   switch (props.message.cardType) {
     case RPCChatTypes.JourneycardType.welcome:
-      actions = [
-        {label: 'Publish team on your own profile', onClick: props.onPublishTeam},
+      actions = xxx.teamIsBig ? [
+        {label: 'Publish team on your profile', onClick: props.onPublishTeam},
+        // xxx todo remove "browse other channels" from the SYSTEM message.
         {label: 'Browse channels', onClick: props.onBrowseChannels},
+      ] : [
+        // xxx todo hook this up and fix the icon.
+        {label: ':wave: Wave', onClick: props.onWave},
+        {label: 'Publish team on your profile', onClick: props.onPublishTeam},
       ]
       image = 'icon-illustration-welcome-96'
       text = 'Welcome to the team! Say hi to everyone and introduce yourself.'
